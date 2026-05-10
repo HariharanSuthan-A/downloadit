@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownloadIt - Free & Open Media Downloader | YouTube, Instagram, TikTok</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <meta name="description"
+        content="DownloadIt is a free and open-source media downloader. Easily save high-quality videos and audio from YouTube, Instagram, TikTok, Facebook, and Twitter. No registration required.">
+    <meta name="keywords"
+        content="free video downloader, open source downloader, youtube to mp4, instagram reel downloader, tiktok without watermark, download twitter video">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="container nav-flex">
+            <a href="/" class="brand">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                </div>
+                <span>Download<span>It</span></span>
+            </a>
+            <!-- Header links removed as requested -->
+        </div>
+    </nav>
+
+    <main class="hero-section">
+        <div class="container hero-content">
+            <div class="badge fade-in">
+                <span class="pulse"></span>
+                Free & Open Media Downloader
+            </div>
+            <h1 class="hero-title fade-in delay-1">The Web's Best <span class="gradient-text">Open</span> Downloader
+            </h1>
+            <p class="hero-desc fade-in delay-2">DownloadIt is a community-driven, free and open tool for saving your
+                favorite content from any platform. High quality, no limits, no trackers.</p>
+
+            <div class="input-card-premium fade-in delay-3" id="inputContainer">
+                <div class="input-wrapper">
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                        </svg>
+                    </div>
+                    <input type="text" id="urlInput" placeholder="Paste media URL (YouTube, Instagram, X...)"
+                        autocomplete="off">
+                    <button id="pasteBtn" class="secondary-btn" title="Paste from clipboard">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                        <span>Paste</span>
+                    </button>
+                </div>
+                <button id="analyzeBtn" class="primary-btn">
+                    <span>Download!</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="statusArea" class="status-area hidden">
+                <div class="loader">
+                    <div class="spinner"></div>
+                    <p id="statusText">Processing your request...</p>
+                </div>
+            </div>
+
+            <div id="resultArea" class="result-area hidden">
+                <div class="media-card-glass">
+                    <div class="media-header">
+                        <div class="media-preview-container">
+                            <img id="mediaThumb" src="" alt="Thumbnail">
+                            <div class="media-duration" id="mediaDuration">00:00</div>
+                        </div>
+                        <div class="media-details">
+                            <h3 id="mediaTitle">Video Title</h3>
+                            <div class="media-meta">
+                                <span id="mediaPlatform" class="platform-badge">YouTube</span>
+                                <span id="mediaUploader">Uploader</span>
+                            </div>
+                            <p id="mediaDesc">Loading description...</p>
+                        </div>
+                    </div>
+
+                    <div class="download-tabs">
+                        <button class="tab-btn active" data-tab="video">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="2" y1="7" x2="7" y2="7" />
+                                <line x1="2" y1="17" x2="7" y2="17" />
+                                <line x1="17" y1="17" x2="22" y2="17" />
+                                <line x1="17" y1="7" x2="22" y2="7" />
+                            </svg>
+                            Video
+                        </button>
+                        <button class="tab-btn" data-tab="audio">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13" />
+                                <circle cx="6" cy="18" r="3" />
+                                <circle cx="18" cy="16" r="3" />
+                            </svg>
+                            Audio
+                        </button>
+                    </div>
+
+                    <div class="download-options">
+                        <div id="videoOptions" class="option-grid"></div>
+                        <div id="audioOptions" class="option-grid hidden"></div>
+                    </div>
+
+                    <div class="media-actions">
+                        <button id="newDownloadBtn" class="secondary-btn" style="margin-top: 24px;">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10" />
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                            </svg>
+                            Analyze Another Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="seo-content-section" style="padding: 80px 0; background: #ffffff;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 32px; font-weight: 850; margin-bottom: 24px;">Universal Media Downloader</h2>
+                <p style="color: var(--text-gray); font-size: 17px; margin-bottom: 20px;">DownloadIt is built to be the
+                    most reliable **free and open downloader** on the web. Our tool supports a wide range of platforms
+                    including YouTube, Instagram, TikTok, Facebook, Vimeo, and X (formerly Twitter).</p>
+                <p style="color: var(--text-gray); font-size: 17px;">Whether you need to save an Instagram Reel for
+                    offline viewing, convert a YouTube video to MP3 for your podcast, or archive a TikTok without the
+                    watermark, DownloadIt provides a seamless, advertisement-free experience for everyone.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="disclaimer-section">
+        <div class="container">
+            <h2 class="section-title">Important Information</h2>
+            <div class="disclaimer-grid">
+                <div class="disclaimer-card">
+                    <div class="disclaimer-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="disclaimer-info">
+                        <h3>No Media Storage</h3>
+                        <p>We believe in privacy. DownloadIt does not store any media files or user data on its servers.
+                            All downloads are processed in real-time.</p>
+                    </div>
+                </div>
+                <div class="disclaimer-card">
+                    <div class="disclaimer-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <div class="disclaimer-info">
+                        <h3>Public Content Only</h3>
+                        <p>Our open-source engine is designed to only fetch public content. Private media or content
+                            behind login walls cannot be downloaded.</p>
+                    </div>
+                </div>
+                <div class="disclaimer-card">
+                    <div class="disclaimer-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <div class="disclaimer-info">
+                        <h3>Fair Use Policy</h3>
+                        <p>This tool is intended for personal use and archiving. We encourage users to respect the
+                            intellectual property of creators on all platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 DownloadIt. The Web's Free & Open Downloader.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
