@@ -219,6 +219,16 @@ app.get('/api/download', (req, res) => {
     req.on('close', () => yt.kill('SIGTERM'));
 });
 
+/* ── 404 & Error Handling ──────────────────────────── */
+app.use('/api/*', (req, res) => {
+    res.status(404).json({ error: 'API endpoint not found' });
+});
+
+app.use((err, req, res, next) => {
+    console.error('[CRITICAL ERROR]', err.stack);
+    res.status(500).json({ error: 'Internal server error', details: err.message });
+});
+
 /* ── Start server ──────────────────────────────────── */
 app.listen(PORT, () => {
     console.log(`\n  ╔══════════════════════════════════════════╗`);
