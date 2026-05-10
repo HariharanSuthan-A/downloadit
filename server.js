@@ -237,3 +237,6 @@ app.listen(PORT, () => {
     console.log(`  ║   yt-dlp: ${YT_DLP ? '✓ Found' : '✗ NOT FOUND'}                  ║`);
     console.log(`  ╚══════════════════════════════════════════╝\n`);
 });
+
+// Export for Vercel
+module.exports = app;
